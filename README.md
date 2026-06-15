@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Voyage - Portal de Viagens em Next.js
 
-## Getting Started
+Uma aplicação moderna desenvolvida em Next.js (App Router) para consolidar conceitos de roteamento baseado em arquivos, rotas dinâmicas e isolamento de estilos com CSS Modules. O foco da interface é oferecer uma navegação limpa, aplicando os melhores padrões de UX/UI.
 
-First, run the development server:
+## Funcionalidades e Aprendizados Aplicados
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Roteamento Baseado em Arquivos (App Router):** Estrutura limpa utilizando pastas para definir rotas.
+- **Rotas Dinâmicas (`[id]`):** Geração de páginas individuais para cada destino através da leitura de parâmetros da URL (`params.id`).
+- **Navegação SPA:** Uso do componente `<Link>` do `next/link` para transições instantâneas sem recarregar o navegador.
+- **CSS Modules:** Estilos com escopo local isolado (ex: `styles.container`), evitando conflitos de classes e aplicando técnicas como *Glassmorphism* e microinterações de hover.
+- **Layout Global:** Utilização do `layout.tsx` para manter o Header e o Menu de Navegação consistentes em toda a aplicação.
+- **Tratamento de Exceções:** Uso da função `notFound()` nativa do Next.js para rotas inexistentes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Como executar o projeto localmente
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/SEU-USUARIO/portal-viagens.git](https://github.com/SEU-USUARIO/portal-viagens.git)
