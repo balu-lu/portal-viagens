@@ -39,12 +39,57 @@
   margin-bottom: 2rem;
 }
 
-.precoTag {
-  display: inline-block;
-  background-color: #e0f2fe;
-  color: #0284c7;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoLabel {
+  font-size: 0.875rem;
   font-weight: 700;
-  font-size: 1.25rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.infoValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0284c7;
+}
+
+.subtitulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.listaAtividades {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 3rem;
+}
+
+.listaAtividades li {
+  color: #475569;
+  font-size: 1.125rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.listaAtividades li:last-child {
+  border-bottom: none;
 }
