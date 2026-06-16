@@ -1,6 +1,6 @@
 # Voyage - Portal de Viagens em Next.js
 
-Uma aplicação moderna desenvolvida em Next.js (App Router) para consolidar conceitos de roteamento baseado em arquivos, rotas dinâmicas e isolamento de estilos com CSS Modules. O foco da interface é oferecer uma navegação limpa, aplicando os melhores padrões de UX/UI.
+Uma aplicação moderna desenvolvida em Next.js (App Router) para consolidar conceitos de roteamento baseado em arquivos, rotas dinâmicas e isolamento de estilos com CSS Modules. O foco da interface é oferecer uma navegação limpa, aplicando os melhores padrões de UX/UI
 
 ## Funcionalidades e Aprendizados Aplicados
 
