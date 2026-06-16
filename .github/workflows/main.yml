@@ -25,7 +25,7 @@ jobs:
               run: npm ci
 
             - name: Rodar Lint
-              run: npm run lint
+              run: npx next lint --no-cache
 
             - name: Rodar Build
               run: npm run build
