@@ -18,14 +18,14 @@ jobs:
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: 22 # Versão estável mais recente
+                  node-version: 22
                   cache: 'npm'
 
             - name: Instalar dependências
               run: npm ci
 
             - name: Rodar Lint
-              run: npx run lint --dir .
+              run: npm run lint
 
             - name: Rodar Build
               run: npm run build
@@ -36,8 +36,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Deploy na Vercel
-              uses: vercel/actions@v2
+              uses: amondnet/vercel-action@v25
               with:
                   vercel-token: ${{ secrets.VERCEL_TOKEN }}
                   vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
                   vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+                  vercel-args: '--prod'
