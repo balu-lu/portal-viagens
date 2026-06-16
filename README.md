@@ -52,6 +52,8 @@ Ele executa as seguintes etapas em push ou pull request para as branches `main` 
 
 Também há deploy automático via Vercel em push para `main` ou `master`.
 
+Observação: o workflow atual também executa os testes com `npm run test` — portanto o pipeline completa as etapas de lint, testes e build antes do deploy.
+
 ## Deploy via Vercel
 
 O deploy usa `amondnet/vercel-action@v42.3.0` e requer os seguintes secrets no repositório:
@@ -60,48 +62,24 @@ O deploy usa `amondnet/vercel-action@v42.3.0` e requer os seguintes secrets no r
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
 
-(https://meu-blog-next-azure.vercel.app/)
+Após configurar os `secrets` no repositório, o deploy será acionado automaticamente em pushes na branch `main`.
+
+Substitua o link abaixo pelo endereço do seu projeto Vercel após o primeiro deploy:
+
+(URL do deploy: https://portal-viagens-one.vercel.app/) 
 
 ## Aderência ao desafio
 
-O projeto atende aos seguintes itens:
+O projeto atende aos requisitos do desafio:
 
-- validação de código com ESLint
-- build da aplicação com `npm run build`
-- deploy automatizado via Vercel na branch `main`
+- **Validação de Código**: `npm run lint` (ESLint) — script definido em `package.json` como `eslint --ext .ts,.tsx,.js,.jsx .`.
+- **Build da Aplicação**: `npm run build` (Next.js `next build`).
+- **Testes**: `npm run test` (Vitest) e o passo de testes está incluído no workflow.
+- **Deploy Automatizado**: deploy via Vercel configurado no workflow (`amondnet/vercel-action@v42.3.0`).
 
-## Observação
+Passos pendentes para completar o fluxo end-to-end:
 
-Para cumprir o requisito completo de CI, adicione testes e um script `test` em `package.json`, depois inclua `npm run test` no workflow.
-
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends(
-    "next/core-web-vitals",
-    "next/typescript",
-    "plugin:prettier/recommended" // <-- Prettier adicionado aqui
-  ),
-  {
-    rules: {
-      "prettier/prettier": [
-        "error",
-        {
-          "tabWidth": 4
-        }
-      ]
-    }
-  }
-];
-
-export default eslintConfig;
+- Configurar os `secrets` (`VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`) no repositório GitHub.
+- Fazer push das alterações e verificar a execução do workflow na aba **Actions** do repositório.
+- Atualizar este `README.md` com o link final do deploy em Vercel.
 ```
