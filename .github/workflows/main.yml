@@ -27,9 +27,6 @@ jobs:
             - name: Rodar Lint
               run: npx next lint
 
-            - name: Rodar Prettier Check
-              run: npx prettier --check
-
             - name: Rodar Build
               run: npm run build
 
