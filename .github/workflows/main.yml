@@ -25,7 +25,10 @@ jobs:
               run: npm ci
 
             - name: Rodar Lint
-              run: npx eslint . --config eslint.config.mjs
+              run: npm run lint
+
+            - name: Rodar Testes
+              run: npm run test
 
             - name: Rodar Build
               run: npm run build

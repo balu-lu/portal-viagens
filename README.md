@@ -1,83 +1,79 @@
-# Voyage - Portal de Viagens em Next.js
+# Portal de Viagens
 
-Uma aplicação moderna desenvolvida em Next.js (App Router) para consolidar conceitos de roteamento baseado em arquivos, rotas dinâmicas e isolamento de estilos com CSS Modules. O foco da interface é oferecer uma navegação limpa, aplicando os melhores padrões de UX/UI
+Aplicação front-end em Next.js com rotas estáticas e dinâmicas, CSS Modules e deploy automatizado via Vercel.
 
-## Funcionalidades e Aprendizados Aplicados
+## Tecnologias utilizadas
 
-- **Roteamento Baseado em Arquivos (App Router):** Estrutura limpa utilizando pastas para definir rotas.
-- **Rotas Dinâmicas (`[id]`):** Geração de páginas individuais para cada destino através da leitura de parâmetros da URL (`params.id`).
-- **Navegação SPA:** Uso do componente `<Link>` do `next/link` para transições instantâneas sem recarregar o navegador.
-- **CSS Modules:** Estilos com escopo local isolado (ex: `styles.container`), evitando conflitos de classes e aplicando técnicas como *Glassmorphism* e microinterações de hover.
-- **Layout Global:** Utilização do `layout.tsx` para manter o Header e o Menu de Navegação consistentes em toda a aplicação.
-- **Tratamento de Exceções:** Uso da função `notFound()` nativa do Next.js para rotas inexistentes.
+- Next.js
+- React
+- TypeScript
+- ESLint
+- Prettier
+- GitHub Actions
+- Vercel
 
-## Como executar o projeto localmente
+## Como executar localmente
 
-1. **Clone o repositório:**
+1. Clone o repositório:
    ```bash
-   git clone [https://github.com/SEU-USUARIO/portal-viagens.git](https://github.com/SEU-USUARIO/portal-viagens.git)
+   git clone https://github.com/SEU-USUARIO/portal-viagens.git
+   cd portal-viagens
+   ```
+2. Instale as dependências:
+   ```bash
+   npm ci
+   ```
+3. Execute a aplicação:
+   ```bash
+   npm run dev
+   ```
+4. Abra o navegador em `http://localhost:3000`.
 
-## Instalação e configuração Prettier e eslint
-Bash
-npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
+## Scripts disponíveis
 
-2. **Configuração do Prettier**
-   Crie um arquivo chamado .prettierrc (ou .prettierrc.json) na raiz do seu projeto. É aqui que definimos a regra dos 4 espaços, além de outras boas práticas de padronização do ecossistema JavaScript:
+- `npm run dev` - inicia o servidor de desenvolvimento
+- `npm run build` - compila o projeto para produção
+- `npm run start` - inicia o servidor de produção
+- `npm run lint` - executa ESLint
+- `npm run test` - executa os testes com Vitest
+- `npm run format` - formata o código com Prettier
+- `npm run format:check` - verifica o estilo com Prettier
 
-```JSON
-{
-  "tabWidth": 4,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "printWidth": 80
-}
-```
+## CI/CD
 
-3. **Arquivo de Ignorados (Prettier Ignore)**
-   Para evitar que o Prettier tente formatar arquivos gerados automaticamente ou pastas de build, crie um arquivo .prettierignore na raiz do projeto:
+O workflow principal está em `.github/workflows/main.yml`.
 
-```Plaintext
-.next
-node_modules
-dist
-build
-public
-*.md
-```
+Ele executa as seguintes etapas em push ou pull request para as branches `main` e `master`:
 
-4. **Configuração do VS Code (Formatação Automática)**
-   Para que o editor formate o código automaticamente de acordo com as regras (com 4 espaços) sempre que você salvar um arquivo, crie ou edite a pasta .vscode na raiz do projeto e adicione um arquivo settings.json:
+- checkout do código
+- instalação de dependências com `npm ci`
+- lint com `npm run lint`
+- build com `npm run build`
 
-```JSON
-{
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  }
-}
-```
+Também há deploy automático via Vercel em push para `main` ou `master`.
 
-5. **Scripts de Validação Automática**
-   Por fim, abra o seu package.json e adicione dois scripts na seção "scripts" para facilitar a formatação de todo o projeto de uma só vez pelo terminal:
+## Deploy via Vercel
 
-```JSON
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
-  }
-  ```
+O deploy usa `amondnet/vercel-action@v42.3.0` e requer os seguintes secrets no repositório:
 
-6. **Como configurar no ficheiro eslint.config.mjs**
-   Abra o seu ficheiro eslint.config.mjs. Vai notar que ele tem um código pré-configurado pelo Next.js.
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
 
-```JavaScript
+(https://meu-blog-next-azure.vercel.app/)
+
+## Aderência ao desafio
+
+O projeto atende aos seguintes itens:
+
+- validação de código com ESLint
+- build da aplicação com `npm run build`
+- deploy automatizado via Vercel na branch `main`
+
+## Observação
+
+Para cumprir o requisito completo de CI, adicione testes e um script `test` em `package.json`, depois inclua `npm run test` no workflow.
+
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
