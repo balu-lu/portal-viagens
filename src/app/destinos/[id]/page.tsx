@@ -1,5 +1,6 @@
 import { destinos } from '../../../data/destinos';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 export default async function DestinoDetalhe({
@@ -17,9 +18,11 @@ export default async function DestinoDetalhe({
 
     return (
         <div className={styles.container}>
-            <img
+            <Image
                 src={destino.imagem}
                 alt={destino.nome}
+                width={800}
+                height={500}
                 className={styles.imagem}
             />
 
