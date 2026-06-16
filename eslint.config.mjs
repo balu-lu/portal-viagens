@@ -13,18 +13,8 @@ const eslintConfig = [
     ...compat.extends(
         'next/core-web-vitals',
         'next/typescript',
-        'plugin:prettier/recommended' // <-- Prettier adicionado aqui
+        'plugin:prettier/recommended'
     ),
-    {
-        rules: {
-            'prettier/prettier': [
-                'error',
-                {
-                    tabWidth: 4,
-                },
-            ],
-        },
-    },
 ];
 
 export default eslintConfig;
